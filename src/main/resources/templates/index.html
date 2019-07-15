@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+
+<!-- include java script in the footer -->
+<script type="text/javascript"
+	th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript"
+	th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<title>Spring Boot MongoDB Demo</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">Spring Boot + MongoDB Demo</h1>
+		<h1 class="text-center">DevopsPramod Demo</h1>
+		<div class="row-md-8">
+			<div class="col-md-3">
+			</div>
+			<div class="col-md-8">
+				<h4 class="text-center">PRAMOD KUMAR SAHOO</h4>
+				<h4 class="text-center">Contact @ +91-9711454014</h4>
+				<h5 class="text-center">
+					Copyrights 2019 by <a href="#">DevopsPramod</a>
+				</h5>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		$.ajax({
+			url : "/api/users",
+
+			success : function(response) {
+				$.each(response, function(i, item) {
+					var row = $("<tr />");
+					$("#usersTable").append(row);
+
+					row.append($("<td>" + item.id + "</td>"));
+					row.append($("<td>" + item.firstName + "</td>"));
+					row.append($("<td>" + item.lastName + "</td>"));
+					row.append($("<td>" + item.email + "</td>"));
+
+				});
+			}
+		})
+	</script>
+</body>
+</html>
